@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem Enviada</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Obrigado por entrar em contato, {{ nome }}!</h1>
+        <p>Seu e-mail é {{ email }} e seu telefone é {{ telefone }}. Nós entraremos em contato em breve.</p>
+    </div>
+</body>
+</html>

@@ -100,6 +100,36 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+import logging
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'  # Servidor SMTP do Mailtrap
+EMAIL_PORT = 2525  # Porta SMTP do Mailtrap
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'f485afb619d616'  # Substitua pelo que está no Mailtrap
+EMAIL_HOST_PASSWORD = '0ecff0d8d67106'  # Substitua pelo que está no Mailtrap
+DEFAULT_FROM_EMAIL = 'seuemail@exemplo.com'  # Pode ser qualquer e-mail fictício
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'mailtrap_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['mailtrap_debug'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

@@ -9,6 +9,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -16,3 +17,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Contato(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    telefone = models.CharField(max_length=15)
+    data_criacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nome
